@@ -1,0 +1,28 @@
+@mixin none{
+  display: none;
+}
+
+@mixin flexSpaceAround($flexDirection) {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: $flexDirection;
+}
+
+@mixin flexSpaceBetween($flexDirection) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: $flexDirection;
+}
+
+@mixin flexCenterAll($flexDirection) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $flexDirection;
+}
+
+@mixin centerDiv {
+  margin: 0 auto;
+}

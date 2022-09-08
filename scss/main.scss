@@ -1,0 +1,35 @@
+@import "./variables";
+@import "./mixins";
+@import "./resets";
+@import "./mobileView";
+@import "./desktopView";
+
+* {
+  cursor: default;
+}
+
+.control-button {
+  cursor: pointer;
+
+  svg {
+    cursor: pointer;
+  }
+}
+
+.none {
+  @include none;
+}
+
+.icon-play {
+  padding-left: 10px;
+}
+
+.loop-hidden {
+  display: none;
+}
+
+.track_no {
+  cursor: pointer;
+}
+
+

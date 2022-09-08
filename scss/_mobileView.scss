@@ -1,0 +1,306 @@
+@media (max-width: 767px) {
+  body {
+    background-color: $primary-color;
+    font-family: $primary-font;
+    color: $text-color;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 42rem;
+    padding: 1%;
+    overflow: hidden;
+    overscroll-behavior: contain;
+
+    .player {
+      @include flexSpaceAround(column);
+      border: 3px solid $secondary-color;
+      text-align: center;
+      margin: 0 auto;
+      width: 95%;
+      height: 95%;
+      padding: 30px;
+      box-shadow:
+   /*The top layer shadow*/ 0 1px rgba(0, 0, 0, 0.15),
+        /*The second Layer*/ 0 10px 0 -5px $secondary-color,
+        /*The second Layer shadow*/ 0 10px 1px -4px rgba(0, 0, 0, 0.15),
+        /*The third Layer*/ 0 20px 0 -10px $secondary-color,
+        /*The third Layer Shadow*/ 0 20px 1px -9px rgba(0, 0, 0, 0.15);
+    }
+
+    .player_list_container {
+      top: 0;
+      position: fixed;
+      width: 70%;
+      height: 100%;
+      z-index: 50;
+      transition: all 1s;
+
+      .player_list {
+        border: 3px solid white;
+        direction: rtl;
+        background-color: rgba(0, 0, 0, 0.3);
+        color: $secondary-color;
+        @include centerDiv;
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        overscroll-behavior-y: contain;
+
+        .list_track {
+          direction: ltr;
+          font-size: small;
+          margin: 0 auto;
+          @include flexCenterAll(row);
+          width: 100%;
+          height: 10%;
+          border-bottom: 1px solid $secondary-color;
+          transition: all 0.3s;
+
+          .track_no {
+            transition: all 1s;
+          }
+        }
+
+        .list_track:hover {
+          border-bottom: 4px solid $secondary-color;
+          color: $tertiary-color;
+
+          .track_no {
+            border-bottom: 2px solid $secondary-color;
+            transition: all 3s;
+          }
+        }
+
+        .list_track-active {
+          background: linear-gradient($primary-color, $secondary-color);
+          color: $text-color;
+        }
+      }
+    }
+  }
+  .player_image_container {
+    padding: 10px;
+    width: 17rem;
+    height: 17rem;
+
+    .player_image {
+      width: 100%; //400px;
+      height: 100%; //400px;
+      border-radius: 100%;
+      object-fit: cover;
+      outline: 3px solid $tertiary-color;
+      outline-offset: 15px;
+    }
+  }
+
+  .artist_info {
+    margin: 20px 0;
+  }
+
+  .timers {
+    @include centerDiv;
+    @include flexSpaceBetween(row);
+    width: 80%;
+  }
+
+  .bars {
+    width: 100%;
+    @include flexSpaceAround(column);
+
+    .progress_bar {
+      margin: 5px 0;
+
+      .play_progress_bar,
+      .volume_bar {
+        width: 80%;
+        appearance: none;
+        background-color: $tertiary-color;
+        border-radius: 1rem;
+        height: 0.4rem;
+        background-image: linear-gradient(rgb(99, 97, 97), rgb(99, 97, 97));
+        background-size: 0;
+        background-repeat: no-repeat;
+      }
+
+      .play_progress_bar::-webkit-slider-thumb,
+      .volume_bar::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        appearance: none;
+        background: #fff;
+        box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease-in-out;
+      }
+    }
+
+    .player_progress_container {
+      width: 80%;
+    }
+
+    .volume_bar_container {
+      @include flexSpaceAround(row);
+      width: 170px;
+
+      svg {
+        fill: $tertiary-color;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .volume_icon-active {
+        fill: $secondary-color;
+      }
+    }
+  }
+
+  .controls {
+    @include flexSpaceAround(row);
+    @include centerDiv;
+    gap: 5px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+
+    .control-button {
+      background-color: $primary-color;
+      border: 2px solid $tertiary-color;
+      border-radius: 100%;
+      padding: 4px;
+      width: 100%;
+      transition: all 0.5s;
+
+      svg {
+        fill: $secondary-color;
+        width: 10vw;
+        height: 10vw;
+        max-width: 2.8rem;
+        max-height: 2.8rem;
+      }
+    }
+
+    .pause_button,
+    .play_button {
+      svg {
+        fill: $secondary-color;
+        width: 15vw;
+        height: 15vw;
+        max-width: 3.5rem;
+        max-height: 3.5rem;
+      }
+    }
+
+    .control-button:hover {
+      background-color: $tertiary-color;
+      transform: scale(90%);
+    }
+
+    .control-button:active {
+      background-color: $secondary-color;
+      transform: scale(90%);
+
+      & svg {
+        fill: $tertiary-color;
+      }
+    }
+  }
+
+  .open-nav-btn {
+    @include flexCenterAll(column);
+    font-size: xx-large;
+    position: absolute;
+    top: 40%;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: $tertiary-color;
+    border-radius: 100%;
+    z-index: 100;
+
+    .open-nav {
+      position: absolute;
+      transition: all 1s;
+      width: 40px;
+      height: 5px;
+      background-color: $text-color;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        width: 40px;
+        height: 5px;
+        background-color: $text-color;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        width: 40px;
+        height: 5px;
+        background-color: $text-color;
+      }
+
+      &.open {
+        transform: rotate(180deg);
+        background: transparent;
+        transition: all 1s;
+
+        &::before {
+          transform: rotate(45deg) translate(7px, 7px);
+          transition: all 1s;
+        }
+
+        &::after {
+          transform: rotate(-45deg) translate(7px, -7px);
+          transition: all 1s;
+        }
+      }
+    }
+  }
+
+  .player_list_open {
+    transform: translateX(-110%);
+  }
+
+  .list_track_hide {
+    transform: translate(300%, -400%);
+    transition: all 1s;
+  }
+
+  .blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    transition: all 0.5s;
+    z-index: 40;
+  }
+
+  .hide-blur {
+    display: none;
+  }
+
+  .music_count_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    color: $tertiary-color;
+    float: right;
+
+    .music_count_wrapper {
+      background-color: $secondary-color;
+      margin-top: 20px;
+      padding: 5px;
+      border-radius: 10px;
+    }
+  }
+}

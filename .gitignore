@@ -1,0 +1,6 @@
+/dist
+/src
+/node_modules
+.json
+.vscode
+.cache
