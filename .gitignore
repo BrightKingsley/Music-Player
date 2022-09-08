@@ -1,6 +1,6 @@
 /dist
 /src
 /node_modules
-.json
+*.json
 .vscode
 .cache
