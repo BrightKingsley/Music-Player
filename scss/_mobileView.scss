@@ -1,4 +1,32 @@
 @media (max-width: 767px) {
+  * {
+    user-select: none;
+
+    ::-webkit-scrollbar {
+      width: 15px;
+      margin: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: rgba(73, 70, 70, 0.166);
+      background-color: rgba(234, 172, 188, 0.839);
+
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: rgba(170, 167, 167, 0.623);
+      border-radius: 1rem;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      border-radius: 1rem;
+      background-color: rgba(170, 167, 167, 0.844);
+    }
+    ::-webkit-scrollbar-thumb:active {
+      border-radius: 1rem;
+      background-color: $tertiary-color;
+      background-color: rgba(255, 255, 255, 0.82);
+    }
+  }
+
   body {
     background-color: $primary-color;
     font-family: $primary-font;
